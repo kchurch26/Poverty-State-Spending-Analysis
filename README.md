@@ -1,5 +1,4 @@
 # Poverty Rate Analysis: Public Assistance Spending, Education, and Cost of Living
-State-level OLS regression analysis examining public assistance spending, education rates, and cost of living as predictors of poverty rates using 2022 Census and C2ER data in R.
 
 ## Overview
 This project examines whether state-level public assistance spending, 
@@ -43,6 +42,25 @@ Model does not establish causality. Future work could address
 multicollinearity, confounding variables, and longitudinal data to better 
 isolate education's long-term impact on poverty reduction.
 
+## Data Access
+The following datasets are required to reproduce this analysis and must be 
+downloaded separately:
+
+- **Public welfare spending**: Download from the U.S. Census Bureau, 
+[State & Local Government Finance Historical Datasets and Tables](https://www.census.gov/data/datasets/2022/econ/local/public-use-datasets.html) 
+(2022). Filter for "Public Welfare" expenditures by state.
+
+- **Cost of Living Index**: Download from the Council for Community and 
+Economic Research (C2ER) at [coli.org](https://www.coli.org). 
+2022 state-level index data required.
+
+- **Poverty and education data**: Pulled directly via the `tidycensus` 
+R package using the U.S. Census Bureau API. A free API key is required — 
+register at [api.census.gov](https://api.census.gov/data/key_signup.html).
+
+Once downloaded, update the file paths in the `.Rmd` file to match your 
+local directory before running.
+
 ## Tools
 R | tidyverse | tidycensus | dplyr | knitr
 
@@ -52,10 +70,3 @@ R | tidyverse | tidycensus | dplyr | knitr
 | `povertyspendinganalysis.Rmd` | Full R Markdown source with code and 
 narrative |
 | `povertyspendinganalysis.pdf` | Knitted PDF output (if available) |
-```
-
----
-
-**One flag:** your .Rmd has two hardcoded local file paths for the spending and COLI data:
-```
-/Users/k.churchill22/Library/CloudStorage/...
